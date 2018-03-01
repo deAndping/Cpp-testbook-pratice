@@ -1,0 +1,13 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	char ans;
+	cout << "现在在下雨吗？(输入'Y'代表'是'，输入'X'代表'不是')" << endl;
+	cin >> ans;
+	if (ans == 'Y')
+		cout << "现在正在下雨。" << endl;
+	else if (ans == 'N')
+		cout << "现在没有下雨。" << endl;
+	return 0;
+}

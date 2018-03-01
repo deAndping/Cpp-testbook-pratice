@@ -1,0 +1,8 @@
+#include <iosteam>
+using namespace std;
+
+int main(){
+	for(char c=32; c<127; ++c)
+		cout << c << endl;
+	return 0;
+}

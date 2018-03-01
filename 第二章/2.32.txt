@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int guess = -1;
+	int n = rand() % 100;
+	while(guess != n) {
+		cout << "请输入你要猜的数: ";
+		cin >> guess;
+		if(guess < n)
+			cout << "你猜的数字小了" << endl;
+		else if(guess > n) cout << "你猜的数字大了" << endl;
+	}
+	cout << "恭喜你，你猜对了！" << endl;
+	do {
+		cout << "请输入你要猜的数: ";
+		cin >> guess;
+		if(guess < n)
+			cout << "你猜的数字小了" << endl;
+		else if(guess > n) cout << "你猜的数字大了" << endl;
+	} while(guess != n);
+	cout << "恭喜你，你猜对了！" << endl;
+	return 0;
+}

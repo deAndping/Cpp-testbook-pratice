@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+bool isPrimeNumber(int n);
+
+int main(){
+	int i;
+	for (i = 1; i <= 100; ++i)
+		if (isPrimeNumber(i))	cout << i << " ";
+	cout << endl;
+	i = 1;
+	do {
+		if (isPrimeNumber(i))	cout << i << " ";
+		++i;
+	} while (i <= 100);
+	cout << endl;
+	i = 1;
+	while(i <= 100) {
+		if (isPrimeNumber(i))	cout << i << " ";
+		++i;
+	}
+	cout << endl;
+	return 0;
+}
+
+bool isPrimeNumber(int n){
+	bool res = true;
+	for(int i = 2; i < sqrt(n); ++i) {
+		if (n % i == 0) {
+			res = false;
+			break;
+		}
+	}
+	return res;
+}

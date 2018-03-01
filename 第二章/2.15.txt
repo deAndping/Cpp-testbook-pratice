@@ -1,0 +1,14 @@
+改正后的程序：
+#include<iostream>
+using namespace std;
+
+int main(){
+	int i;	//少了分号
+	int j;
+	i = 10;
+	j = 20;
+	cout << "i+j=" << i+j ;	//少了一个引号
+	return 0;
+}
+
+输出：i+j=30

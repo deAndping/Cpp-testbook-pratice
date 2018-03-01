@@ -1,0 +1,10 @@
+#include <iosteam>
+using namespace std;
+
+int main(){
+	int n;
+	cout << "请输入一个数字：" ;
+	cin >> n;
+	cout << "这个数字是：" << n << endl;
+	return 0;
+}

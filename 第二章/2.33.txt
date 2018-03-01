@@ -1,0 +1,9 @@
+#include<iostream>
+using namespace std;
+
+int main() {
+	enum Weekday { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday };
+	int i = Monday;
+	cout << i << endl;
+	return 0;
+}

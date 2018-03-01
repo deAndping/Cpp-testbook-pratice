@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	char ins;
+	while (true) {
+		cout << "Menu: A(dd) D(elete) S(ort) Q(uit), Select one: ";
+		cin >> ins;
+		if (ins == 'Q')		break;
+		else if (ins != 'A' && ins != 'D' && ins != 'S')	continue;
+		switch (ins) {
+		case 65:
+			cout << "数据已经增加" << endl;
+			break;
+		case 68:
+			cout << "数据已经删除" << endl;
+			break;
+		case 83:
+			cout << "数据已经排序" << endl;
+			break;
+		}
+	}
+	return 0;
+}

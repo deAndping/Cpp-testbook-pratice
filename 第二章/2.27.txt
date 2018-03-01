@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+int main(){
+	int score;
+	cout << "你考试考了多少分？" << endl;
+	cin >> score;
+	if (score == 100)	--score;	//若分数为100，则将其转化为0~99范围
+	score /= 10;
+	switch(score){
+	case 9:
+		cout << "优" << endl;
+		break;
+	case 8:
+		cout << "良" << endl;
+		break;
+	case 7:
+	case 6:
+		cout << "中" << endl;
+		break;
+	case 5: case 4: case 3: case 2: case 1: case 0:
+		cout << "差" << endl;
+		break;
+	default:
+		cout << "您输入的成绩无效" << endl;
+	}
+	return 0;
+}

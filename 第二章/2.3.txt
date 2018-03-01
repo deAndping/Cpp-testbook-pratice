@@ -1,0 +1,7 @@
+#include<iostream>	//包含输入输出流头文件
+using namespace std;	//使用std命名空间
+int main(){	//main函数入口
+	cout<<"Hello!"<<endl;	//输出字符串"Hello!"，并换行
+	cout<<"Welcome to C++!"<<endl;	//输出字符串"Welcome to C++!"，并换行
+	return 0;	//程序结束返回0
+}

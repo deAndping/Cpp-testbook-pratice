@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+struct Time {
+	int year;
+	int month;
+	int day;
+	int hour;
+	int min;
+	int second;
+};
+
+void print(Time time){
+	cout << time.year << "."
+		<< time.month << "."
+		<< time.day << " "
+		<< time.hour << ":"
+		<< time.min << ":"
+		<< time.second << endl;
+}
+
+int main(){
+	Time time;
+	cout << "请输入时间（格式： 年 月 日 小时 分 秒）：";
+	cin >> time.year >> time.month >> time.day >> time.hour >> time.min >> time.second;
+	print(time);
+	return 0;
+}
