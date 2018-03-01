@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+int solve(int n, int x){
+	int n1 = 1, n2 = 1;
+	for(int i = x; i > 0; --i) {
+		n1 *= n--;
+		n2 *= x--;
+	}
+	return n1 / n2;
+}
+
+int main() {
+	int n = 5;
+	int x;
+	cout << "请问您想一次抽几个不同的球？ " << endl;
+	cin >> x;
+	cout << solve(n, x) << endl;
+	return 0;
+}
