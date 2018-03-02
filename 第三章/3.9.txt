@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+bool isPrimeNumber(int n);
+
+int main() {
+	int n;
+	cout << "Input a number(judge whether it is a prime number):";
+	cin >> n;
+	if (isPrimeNumber(n))	cout << "It's a prime number!" << endl;
+	else	cout << "It's not a prime number!" << endl;
+	return 0;
+}
+
+bool isPrimeNumber(int n) {
+	bool res = true;
+	if (n < 2)	res = false;
+	for (int i = 2; i <= sqrt(n); ++i) {
+		if (n % i == 0) {
+			res = false;
+			break;
+		}
+	}
+	return res;
+}

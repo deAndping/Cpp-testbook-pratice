@@ -1,0 +1,16 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+double fahtoSel(double f) {
+	return 5 * (f - 32) / 9;
+}
+
+int main() {
+	double fah, sel;
+	cout << "Please input a Fahrenheit: ";
+	cin >> fah;
+	sel = fahtoSel(fah);
+	cout << "It converts to the Celsius is " << fixed << setprecision(2) << sel << endl;  // setprecision可以精确输出的位数，其包含在 iomanip 头文件中
+	return 0;
+}

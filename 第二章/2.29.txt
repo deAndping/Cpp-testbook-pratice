@@ -25,7 +25,8 @@ int main(){
 
 bool isPrimeNumber(int n){
 	bool res = true;
-	for(int i = 2; i < sqrt(n); ++i) {
+	if( n < 2 )	res = false;
+	for(int i = 2; i <= sqrt(n); ++i) {
 		if (n % i == 0) {
 			res = false;
 			break;

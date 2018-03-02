@@ -1,0 +1,14 @@
+#include<iostream>
+using namespace std;
+
+short int div(unsigned short int a, unsigned short int b) {
+	return b == 0 ? -1 : a / b;
+}
+
+int main() {
+	unsigned short int a, b;
+	cout << "Please input the two numbers: ";
+	cin >> a >> b;
+	cout << div(a, b) << endl;
+	return 0;
+}
