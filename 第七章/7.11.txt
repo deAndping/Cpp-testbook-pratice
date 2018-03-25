@@ -1,0 +1,33 @@
+#include<iostream>
+
+using namespace std;
+
+class BaseClass {
+public:
+	void fn1() { cout << "Base:fn1" << endl; }
+	void fn2() { cout << "Base:fn2" << endl; }
+};
+
+class DerivedClass: public BaseClass {
+public:
+	void fn1() { cout << "Derived:fn1" << endl; }
+	void fn2() { cout << "Derived:fn2" << endl; }
+};
+
+int main() {
+	DerivedClass d;
+	d.fn1();
+	d.fn2();
+	DerivedClass *d1 = new DerivedClass();
+	BaseClass *b1 = new BaseClass();
+	cout << "d1 = " << d1 << ", b1 = " << b1 << endl;
+	d1->fn1();
+	d1->fn2();
+	b1->fn1();
+	b1->fn2();
+	b1 = d1;
+	b1->fn1();
+	b1->fn2();
+	cout << "d1 = " << d1 << ", b1 = " << b1 << endl;
+	return 0;
+}

@@ -1,0 +1,110 @@
+#include<iostream>
+#include<cassert>
+
+using namespace std;
+
+template<typename T>
+class Array{
+public:
+	Array(int sz=10);
+	Array(const Array<T> &a);
+	~Array();
+	Array<T>& operator=(const Array &rhs);
+	T & operator [] (int i);
+	const T & operator[] (int i) const;
+	operator T *();
+	operator const T *() const;
+	int getSize() const;
+	void resize(int sz);
+private:
+	int size;
+	T *list;
+};
+
+template<class T>
+Array<T>::Array(int sz=10){
+	assert(sz >= 0);
+	this->size = sz;
+	list = new T[size];
+}
+
+template<class T>
+Array<T>::Array(const Array<T> &a){
+	size = a.size;
+	list = new T(size);
+	for (int i = 0; i < size; ++i)
+		list[i] = a.list[i];
+}
+
+template<class T>
+Array<T>::~Array(){
+	delete[] list;
+}
+
+template<class T>
+Array<T>& Array<T>::operator=(const Array& rhs){
+	if(&rhs != this){	
+		if(rhs.size != size){
+			size = rhs.size;
+			delete[] list;
+			list = new T[size];
+		}
+		for (int i = 0; i < size; ++i)
+			list[i] = a.list[i];
+	}
+}
+
+template<class T>
+T& Array<T>::operator[] (int i){
+	assert(i >= 0 && i < size);
+	return list[i];
+}
+
+template<class T>
+const T& Array<T>::operator[] (int i) const{
+	assert(i >= 0 && i < size);
+	return list[i];
+}
+
+template<class T>
+Array<T>::operator T *(){
+	return list;
+}
+
+template<class T>
+Array<T>::operator const T*() const {
+	return list;
+}
+
+template<class T>
+int Array<T>::getSize() const {
+	return size;
+}
+
+template<class T>
+void Array<T>::resize(int sz){
+	assert(sz >= 0);
+	T *newlist = new T[sz];
+	int n = (sz < size) ? sz : size;
+	for (int i = 0; i < n; ++i)
+		newlist[i] = list[i];
+	delete[] list;
+	list = newlist;
+	size = sz;
+}
+
+int main() {
+	int n;
+	cout << "请问这个班有多少位学生：";
+	cin >> n;
+	Array<float> score(n);
+	double sum = 0;
+	for(int i = 0; i < n; ++i){
+		int t;
+		cout << "请输入第" << i + 1 << "位学生的成绩: ";
+		cin >> score[i];
+		sum += score[i];
+	}
+	cout << "他们的平均成绩为：" << sum / n << endl;	
+	return 0;
+}

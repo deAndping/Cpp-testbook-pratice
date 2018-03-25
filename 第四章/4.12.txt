@@ -1,0 +1,20 @@
+#include<iostream>
+using namespace std;
+
+class Circle {
+private:
+	int radius;
+	const double PI = 3.14;
+public:
+	Circle()	{ }
+	Circle(int r) { radius = r; }
+	double getArea() {
+		return radius * radius * PI;
+	}
+};
+
+int main() {
+	Circle c(5);
+	cout << "s = " << c.getArea() << endl;
+	return 0;
+}

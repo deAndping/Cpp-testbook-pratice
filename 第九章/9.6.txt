@@ -1,0 +1,122 @@
+//这里仅给出OrderList.h 和main.cpp 的代码
+
+//OrderList.h
+#ifndef ORDERLIST_H
+#define ORDERLIST_H
+#include "LinkList.h"
+#include <cassert>
+
+template<class T>
+class OrderList{
+private:
+	LinkList<T> list;
+public:
+	OrderList();
+	OrderList(const OrderList<T> &L);
+	void insert(const T &data);
+	int getSize();
+	bool isEmpty();
+	T data();
+	void next();
+	void reset();
+};
+
+template<class T>
+OrderList<T>::OrderList():list() {}
+
+template<class T>
+OrderList<T>::OrderList(const OrderList<T> &L){
+	list = L;
+}
+
+template<class T>
+void OrderList<T>::insert(const T &data){
+	list.reset();
+	if (list.isEmpty())	list.insertFront(data);
+	else {
+		bool flag = false;	//若data小于最后列表结点数据时为true
+		for (int i = 0; i < list.getSize(); ++i) {
+			if (list.data() > data) {
+				flag = true;
+				break;
+			}
+			list.next();
+		}
+		//若所有结点都小于data时，将data插到最后一个结点
+		if(!flag && list.endOfList())	list.insertRear(data);
+		else		list.insertAt(data);
+	}
+}
+
+template<class T>
+int OrderList<T>::getSize(){
+	return list.getSize();
+}
+
+template<class T>
+bool OrderList<T>::isEmpty(){
+	return list.isEmpty();
+}
+
+template<class T>
+T OrderList<T>::data(){
+	return list.data();
+}
+
+template<class T>
+void OrderList<T>::next(){
+	list.next();
+}
+
+template<class T>
+void OrderList<T>::reset(){
+	list.reset();
+}
+#endif 
+
+//main.cpp
+#include <iostream>
+#include"OrderList.h"
+using namespace std;
+
+int main(){
+	OrderList<int>a, b;
+
+	cout << "Please input the data of array A: ";
+	for(int i = 0; i < 5; ++i){
+		int t;
+		cin >> t;
+		a.insert(t);
+	}
+	a.reset();
+	cout << "Array a: ";
+	for (int i = 0; i < a.getSize(); ++i) {
+		cout << a.data() << " ";
+		a.next();
+	}
+	cout << endl;
+
+	cout << "Please input the data of array b: ";
+	for(int i = 0; i < 5; ++i){
+		int t;
+		cin >> t;
+		b.insert(t);
+	}
+	b.reset();
+
+	for(int i = 0; i < 5; ++i){
+		a.insert(b.data());
+		b.next();
+	}
+	a.reset();
+
+	cout << "Array a: ";
+	for(int i = 0; i < a.getSize(); ++i){
+		cout << a.data() << " ";
+		a.next();
+	}
+	cout << endl;
+
+	system("pause");
+	return 0;
+}

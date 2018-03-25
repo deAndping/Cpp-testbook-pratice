@@ -1,0 +1,23 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum WordLength{ THIRTY_TWO, SIXTY_FOUR };
+enum CoreNumber{ ONE, TWO, FOUR};
+
+class CPU {
+private:
+	bool isMux : 1;
+	WordLength wl : 7;
+	CoreNumber cn : 3;
+	unsigned f : 12;
+public:
+	CPU(bool m, WordLength w, CoreNumber c, unsigned ff) : isMux(m), wl(w), cn(c), f(ff) {}
+};
+
+int main() {
+	CPU cpu(true, THIRTY_TWO, FOUR, 2000);
+	cout << sizeof(cpu) << endl;
+	system("pause");
+	return 0;
+}

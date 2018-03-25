@@ -1,0 +1,21 @@
+class Document {
+private:
+	string name;
+public:
+	Document() {}
+	Document(string n):name(n) {}
+	~Document() {}
+	string getName() { return name; }
+};
+
+class Book:public Document {
+private:
+	string name;
+	int pageCount;
+public:
+	Book() {}
+	Book(string n, int p) :name(n), pageCount(p) {}
+	~Book() {}
+	string getName() { return name; }
+	int getPageCount() { return pageCount; }
+};

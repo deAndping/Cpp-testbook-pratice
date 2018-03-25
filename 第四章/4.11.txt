@@ -1,0 +1,28 @@
+#include<iostream>
+using namespace std;
+
+class Rectangle {
+private:
+	int x;
+	int y;
+	long s;
+public:
+	Rectangle(int xx, int yy, long ss = 0) {
+		x = xx;
+		y = yy;
+		s = ss;
+	}
+	void calS() {
+		s = (long)x * (long)y;
+	}
+	long getS(){
+		if (s == 0)	calS();
+		return s;
+	}
+};
+
+int main() {
+	Rectangle r(3, 4);
+	cout << "s = " << r.getS() << endl;
+	return 0;
+}

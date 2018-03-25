@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+
+int sum(int n){
+	if (n == 1)	return n;
+	return n + sum(n - 1);
+}
+
+int main() {
+	int n;
+	cout << "Please input a number: ";
+	cin >> n;
+	cout << "Sum of n is " << sum(n) << endl;
+	return 0;
+}

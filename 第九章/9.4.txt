@@ -1,0 +1,52 @@
+//应多一个指向前趋结点的指针。
+#pragma once
+#ifndef DNODE_H
+#define DNODE_H
+#include<cassert>
+
+template<class T>
+class DNode{
+private:
+	DNode<T> *next;
+	DNode<T> *pre;
+public:
+	T data;
+
+	DNode(const T &data, DNode<T> *next = NULL, DNode<T> *pre = NULL);	//构造函数
+	void insertAfter(DNode<T> *p);		//在此结点后插入结点
+	DNode<T> *deleteAfter();			//删除此结点后的一个结点，并返回被删除结点的地址。
+	DNode<T> *nextNode();				//返回此结点后继结点的地址
+	const DNode<T> *nextNode() const;
+};
+
+template<class T>
+DNode<T>::DNode(const T &data, DNode<T> *next, DNode<T> *pre): data(data), next(next), pre(pre) {}
+
+template<class T>
+void DNode<T>::insertAfter(DNode<T> *p){
+	assert(p != NULL);
+	p->pre = this;
+	p->next = next;
+	next = p;
+}
+
+template<class T>
+DNode<T>* DNode<T>::deleteAfter(){
+	DNode<T> *p = next;
+	if (next != NULL) {
+		if (next->next != NULL)	next->next->pre = this;
+		next = next->next;
+	}
+	return p;
+}
+template<class T>
+DNode<T>* DNode<T>::nextNode(){
+	return next;
+}
+
+template<class T>
+const DNode<T>* DNode<T>::nextNode() const{
+	return next;
+}
+
+#endif

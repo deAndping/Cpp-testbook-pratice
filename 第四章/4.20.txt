@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Complex{
+private:
+	double x;
+	double y;
+public:
+	Complex(double xx, double yy) {
+		x = xx;
+		y = yy;
+	}
+	Complex(double xx){
+		x = xx;
+		y = 0;
+	}
+
+	void add(Complex c);
+	void show();
+};
+
+void Complex::add(Complex c){
+	x += c.x;
+	y += c.y;
+}
+
+void Complex::show(){
+	cout << x << "+" << y << "i";
+}
+
+int main() {
+	Complex c1(3, 5);
+	Complex c2 = 4.5;
+	c1.add(c2);
+	c1.show();
+	cout << endl;
+	system("pause");
+	return 0;
+}

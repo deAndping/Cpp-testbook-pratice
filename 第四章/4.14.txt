@@ -1,0 +1,9 @@
+class Tree{
+private:
+	int ages;
+public:
+	Tree()	{}
+	Tree(int a) { ages = a; }
+	void grow(int years) { ages += years; }
+	int getAges() { return ages; }
+};

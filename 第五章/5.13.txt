@@ -1,0 +1,62 @@
+//XYZ.h
+class X;	//事先声明类X，以免之后出现错误
+
+class Y {
+public:
+	Y()	{}
+	void g(X &x);
+};
+
+class X {
+public:
+	X() : i(0) { }
+	X(int x) : i(x) {}
+	int getI() { return i; }
+	friend void Y::g(X &x);
+	friend class Z;
+	friend void h(X &x);
+private:
+	int i;
+};
+
+
+class Z {
+public:
+	Z() {}
+	void f(X &x);
+};
+
+//XYZ,cpp
+#include "XYZ.h"
+
+
+void Y::g(X &x) {
+	x.i++;
+}
+
+void Z::f(X &x) {
+	x.i += 5;
+}
+
+void h(X &x) {
+	x.i += 10;
+}
+
+//main.cpp
+#include<iostream>
+#include "XYZ.h"
+using namespace std;
+
+int main() {
+	X x;
+	Y y;
+	Z z;
+	cout << "i = " << x.getI() << endl;
+	y.g(x);
+	cout << "i = " << x.getI() << endl;
+	z.f(x);
+	cout << "i = " << x.getI() << endl;
+	h(x);
+	cout << "i = " << x.getI() << endl;
+	return 0;
+}

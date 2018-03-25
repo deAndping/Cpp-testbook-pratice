@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+int maxGongYue(int a, int b){
+	int t = 1;
+	for(int i = 2; i <= a && i <= b; ++i){
+		if (a%i == 0 && b%i == 0)	t = i;
+	}
+	return t;
+}
+
+int minGongBei(int a, int b){
+	int t = maxGongYue(a, b);
+	return (a * b) / t;
+}
+
+int main() {
+	int a, b;
+	cout << "Please input two numbers: ";
+	cin >> a >> b;
+	cout << "它的最大公约数为：" << maxGongYue(a, b) << endl;
+	cout << "它的最小公倍数是：" << minGongBei(a, b) << endl;
+	return 0;
+}

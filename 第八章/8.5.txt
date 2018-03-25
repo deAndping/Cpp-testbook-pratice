@@ -1,0 +1,27 @@
+#include<iostream>
+
+using namespace std;
+
+class Mammal {
+public:
+	virtual void speaking();
+};
+
+void Mammal::speaking() {
+	cout << "Emmm..." << endl;
+}
+
+class Dog:public Mammal {
+public:
+	void speaking();
+};
+
+void Dog::speaking(){
+	cout << "Wang wang wang!" << endl;
+}
+
+int main() {
+	Dog d;
+	d.speaking();
+	return 0;
+}

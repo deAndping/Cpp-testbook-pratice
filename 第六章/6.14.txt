@@ -1,0 +1,2 @@
+cout << "Size of double is " << sizeof(*fd) << endl;
+cout << "Size of double pointer is " << sizeof(fd) << endl;

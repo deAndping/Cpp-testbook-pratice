@@ -1,0 +1,6 @@
+class A {
+public:
+	long (*f1)(int);
+};
+
+long(*f2)(int);

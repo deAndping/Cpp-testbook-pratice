@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+class Count {
+public:
+	Count():count(0) {}
+	Count(int c): count(c) {}
+	Count operator +(const Count &c);
+	friend ostream & operator << (ostream &out, const Count c);
+private:
+	int count;
+};
+
+Count Count::operator +(const Count &c) {
+	return Count(count + c.count);
+}
+
+ostream & operator << (ostream &out, const Count c){
+	out << c.count;
+	return out;
+}
+
+int main() {
+	Count c1;
+	Count c2(5);
+	c1 = c1 + c2;
+	cout << c1 << endl;
+	system("pause");	
+	return 0;
+}

@@ -1,0 +1,32 @@
+#include<iostream>
+
+using namespace std;
+
+class Score{
+private:
+	float score[8];
+public:
+	Score() {}
+	void setScore(int i, float s) { this->score[i] = s; }
+	float getScore(int i) { return this->score[i]; }
+	float getAverageScore();
+};
+
+float Score::getAverageScore(){
+	float sum = 0;;
+	for (int i = 0; i < 8; ++i)
+		sum += this->score[i];
+	return sum / 8;
+}
+
+int main() {
+	Score s;
+	for(int i = 0; i < 8; ++i){
+		float score;
+		cout << "请输入第" << i + 1 << "个学生的成绩: ";
+		cin >> score;
+		s.setScore(i, score);
+	}
+	cout << "他们的平均成绩是：" << s.getAverageScore() << endl;
+	return 0;
+}

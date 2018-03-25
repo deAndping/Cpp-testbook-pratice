@@ -1,0 +1,20 @@
+//main.cpp
+#include<iostream>
+using namespace std;
+
+int n;
+extern void fn1();
+
+int main() {
+	n = 1;
+	fn1();
+	cout << "n = " << n << endl;
+	return 0;
+}
+
+//fn1.cpp
+extern int n;
+
+void fn1(){
+	n = 2;
+}

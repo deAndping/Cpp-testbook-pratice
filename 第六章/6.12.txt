@@ -1,0 +1,3 @@
+float *pfloat;
+char *pstr;
+Customer *pcus;

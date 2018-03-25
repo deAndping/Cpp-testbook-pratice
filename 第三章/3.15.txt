@@ -1,0 +1,27 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+int getPower(int x, int y){
+	int res;
+	if (y < 0)	res = 0;
+	else res = (int)pow(x, y);
+	return res;
+}
+
+double getPower(double x, int y){
+	return pow(x, y);
+}
+
+int main() {
+	int a, m;
+	double b;
+	cout << "Please input two number(format: a b): ";
+	cin >> a >> b;
+	cout << "Please input the power: ";
+	cin >> m;
+	cout << "a的m次方为： " << getPower(a, m) << endl;
+	cout << "a的m次方为：" << getPower((double)a, m) << endl; //在计算a^m时希望得到一个实型结果的方法。
+	cout << "b的m次方为：" << getPower(b, m) << endl;
+	return 0;
+}

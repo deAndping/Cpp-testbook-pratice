@@ -1,0 +1,5 @@
+int a = 1;
+int *p = &a;
+int &b = a;
+*p = 10;
+b = 5;

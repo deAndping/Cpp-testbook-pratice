@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+class Object{
+protected:
+	double weight;
+public:
+	Object():weight(0) { cout << "Object's construction" << endl; }
+	Object(double w) :weight(w) { cout << "Object's construction" << endl; }
+	~Object() { cout << "Object's destruction" << endl; }
+	double getWeight() { return weight; }
+};
+
+class Box: public Object {
+private:
+	double height;
+	double width;
+public:
+	Box():height(0), width(0), Object(0) { cout << "Box's construction" << endl; }
+	Box(double h, double we, double wid): height(h), width(wid), Object(we) { cout << "Box's construction" << endl; }
+	~Box() { cout << "Box's destruction" << endl; }
+	double getHeight() { return height; }
+	double getWidth() { return width; }
+};
+
+int main() {
+	Box b(1.2, 2.4, 1.2);	
+	return 0;
+}

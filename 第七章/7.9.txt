@@ -1,0 +1,22 @@
+#include<iostream>
+
+using namespace std;
+
+class Base {
+public:
+	void fn1() { cout << "Base:fn1" << endl; }
+	void fn2() { cout << "Base:fn2" << endl; }
+};
+
+class Derived: public Base {
+public:
+	void fn1() { cout << "Derived:fn1" << endl; }
+	void fn2() { cout << "Derived:fn2" << endl; }
+};
+
+int main() {
+	Derived d;
+	d.fn1();
+	d.Base::fn1();	
+	return 0;
+}

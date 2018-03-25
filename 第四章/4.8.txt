@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+class Dog{
+private:
+	int age;
+	float weight;
+public:
+	Dog(int a, float w) {
+		age = a;
+		weight = w;
+	}
+	int getAge() { return age; }
+	float getWeight();
+};
+
+float Dog::getWeight(){
+	return weight;
+}
+
+int main() {
+	Dog dog(1, 20);
+	cout << "Dog's age: " << dog.getAge() << " weight: " << dog.getWeight() << endl;
+	return 0;
+}

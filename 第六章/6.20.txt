@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+
+class SimpleCircle{
+private:
+	int *itsRadius;
+	const double PI = 3.14;
+public:
+	SimpleCircle(int r);
+	int getR() { return *itsRadius; }
+	double getS() { return PI * (*itsRadius) * (*itsRadius); }
+	double getC() { return 2 * PI * (*itsRadius); }
+	~SimpleCircle();
+};
+
+SimpleCircle::SimpleCircle(int r){
+	itsRadius = new int(r);
+}
+
+SimpleCircle::~SimpleCircle(){
+	delete itsRadius;
+}
+
+int main() {
+	SimpleCircle c(1);
+	cout << "c = " << c.getC() << endl;
+	cout << "r = " << c.getR() << endl;
+	cout << "S = " << c.getS() << endl;
+	return 0;
+}

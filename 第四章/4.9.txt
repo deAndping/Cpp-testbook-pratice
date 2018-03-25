@@ -1,0 +1,46 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+
+class Point {
+private:
+	int x;
+	int y;
+public:
+	Point(int xx, int yy) {
+		x = xx;
+		y = yy;
+	}
+
+	Point(Point &p){
+		x = p.x;
+		y = p.y;
+	}
+
+	int getX() { return x; }
+	int getY() { return y; }
+};
+
+class Rectangle {
+private:
+	Point left_down;
+	Point right_up;
+	long s;
+public:
+	Rectangle(Point ld, Point ru);
+	long getS() { return s; }
+};
+
+Rectangle::Rectangle(Point ld, Point ru) : left_down(ld), right_up(ru) {
+	int x = right_up.getX() - left_down.getX();
+	int y = right_up.getY() - left_down.getY();
+	s = (long)x * (long)y;
+}
+
+int main() {
+	Point x1(10, 20);
+	Point x2(34, 31);
+	Rectangle r(x1, x2);
+	cout << "The s of rectangle is " << r.getS() << endl;
+	return 0;
+}

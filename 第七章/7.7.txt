@@ -1,0 +1,24 @@
+#include<iostream>
+
+using namespace std;
+
+class Mammal {
+public:
+	Mammal() { cout << "Mammal construction has worked." << endl; }
+	~Mammal() { cout << "Mammal deconstruction has worked." << endl; }
+};
+
+class Dog: public Mammal{
+private:
+	int age;
+public:
+	Dog(): age(0) {}
+	Dog(int a) : age(a) { cout << "Dog construction has worked" << endl; }
+	int getAge() { return age; }
+	~Dog() { cout << "Dog destruction has worked." << endl; }
+};
+
+int main() {
+	Dog dog(0);
+	return 0;
+}

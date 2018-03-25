@@ -1,0 +1,23 @@
+#include<iostream>
+
+using namespace std;
+
+class BaseClass {
+public:
+	virtual ~BaseClass() { cout << "BaseClass destruction" << endl; }
+};
+
+class Derived: public BaseClass {
+public:
+	Derived() { p = new int; }
+	~Derived() { delete p; cout << "Derived destruction" << endl; }
+private:
+	int *p;
+};
+
+int main() {
+	Derived *d = new Derived;
+	BaseClass *b = d;
+	delete b;
+	return 0;
+}

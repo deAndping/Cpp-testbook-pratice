@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+
+class Cat {
+private:
+	static int numOfCats;
+public:
+	Cat() { numOfCats++; }
+	static int getNumOfCats() { return numOfCats; }
+	~Cat() {  }
+};
+
+int Cat::numOfCats = 0;
+
+int main() {
+	Cat cat1;
+	Cat cat2;
+	cout << "The number of cats is " << Cat::getNumOfCats() << endl;
+	system("pause");
+	return 0;
+}

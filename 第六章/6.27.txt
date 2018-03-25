@@ -1,0 +1,42 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+class Employee {
+private:
+	string name;
+	string address;
+	string city;
+	string mail;
+public:
+	Employee() {}
+	Employee(string n, string a, string c, string m) :name(n), address(a), city(c), mail(m) {}
+	void setName(string name) { this->name = name; }
+	void setAddress(string add) { this->address = add; }
+	void setCity(string city) { this->city = city; }
+	void setMail(string mail) { this->mail = mail; }
+	void display();
+};
+
+void Employee::display(){
+	cout << "Name:" << this->name << "\t"
+		<< "address:" << this->address << "\t"
+		<< "city:" << this->city << "\t"
+		<< "mail:" << this->mail << endl;
+}
+
+int main() {
+	string name, add, city, mail;
+	cout << "请输入雇员姓名：";
+	cin >> name;
+	cout << "请输入雇员地址：";
+	cin >> add;
+	cout << "请输入雇员所在的城市：";
+	cin >> city;
+	cout << "请输入雇员的邮编号：";
+	cin >> mail;
+	Employee e(name, add, city, mail);
+	e.display();
+	return 0;
+}

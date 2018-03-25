@@ -1,0 +1,26 @@
+#include<iostream>
+
+using namespace std;
+
+class BaseClass {
+public:
+	virtual void fn1() { cout << "Base:fn1" << endl; }
+	void fn2() { cout << "Base:fn2" << endl; }
+};
+
+class Derived: public BaseClass {
+public:
+	void fn1() { cout << "Derived:fn1" << endl; }
+	void fn2() { cout << "Derived:fn2" << endl; }
+};
+
+int main() {
+	Derived *d = new Derived;
+	BaseClass *b = d;
+	d->fn1();
+	d->fn2();
+	b->fn1();
+	b->fn2();	// Still point to the BaseClass's fn2()
+	delete d;
+	return 0;
+}

@@ -1,0 +1,53 @@
+#include<iostream>
+
+using namespace std;
+
+class Shape {
+public:
+	virtual double getArea();
+	virtual double getPerim();
+};
+
+class Rectangle {
+public:
+	Rectangle(double a=0.0, double b=0.0): a(a), b(b) {}
+	double getArea();
+	double getPerim();
+private:
+	double a;
+	double b;
+};
+
+double Rectangle::getArea() {
+	return a * b;
+}
+
+double Rectangle::getPerim() {
+	return 2 * (a + b);
+}
+
+class Circle {
+public: 
+	Circle(double r=0.0): r(r) {}
+	double getArea();
+	double getPerim();
+private:
+	double r;
+	const double pi = 3.14;
+};
+
+double Circle::getArea(){
+	return pi * r * r;
+}
+
+double Circle::getPerim() {
+	return 2 * pi * r;
+}
+
+int main() {
+	Circle c(2);
+	Rectangle r(3.5, 2.4);
+	cout <<  "The area of circle is " << c.getArea() << ", the perim of circle is " << c.getPerim() << endl;
+	cout << "The area of rectangle is " << r.getArea() << ", the perim of rectangle is " << r.getPerim() << endl;
+	return 0;
+}

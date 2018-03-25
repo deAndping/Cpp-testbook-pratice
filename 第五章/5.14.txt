@@ -1,0 +1,39 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+class Car;
+
+class Boat {
+public:
+	Boat() { weight = 0; }
+	Boat(double x): weight(x) {}
+	friend double getTotalWeight(Boat, Car);
+	double getWeight() { return weight; }
+private:
+	double weight;
+};
+
+class Car{
+public:
+	Car() { weight = 0; }
+	Car(double x): weight(x) {}
+	friend double getTotalWeight(Boat, Car);
+	double getWeight() { return weight; }
+private:
+	double weight;
+};
+
+double getTotalWeight(Boat b, Car c){
+	return b.getWeight() + c.getWeight();
+}
+
+int main() {
+	double boatWeight = 300023.5;
+	double carWeight = 1000.9;
+	Boat b(boatWeight);
+	Car c(carWeight);
+	double weight = getTotalWeight(b, c);
+	cout << "Totalweight is " << setiosflags(ios::fixed) << setprecision(2) << weight << endl;
+	return 0;
+}

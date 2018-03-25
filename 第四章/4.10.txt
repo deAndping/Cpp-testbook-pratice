@@ -1,0 +1,122 @@
+#include<iostream>
+#include<string>
+#include<vector>
+#include<math.h>
+using namespace std;
+
+class Date {
+private:
+	int year;
+	int month;
+	int day;
+public:
+	Date() {  }
+
+	Date(int y, int m, int d) {
+		year = y;
+		month = m;
+		day = d;
+	}
+
+	Date(Date &d){
+		year = d.year;
+		month = d.month;
+		day = d.day;
+	}
+
+	int getYear() { return year; }
+	int getMonth() { return month; }
+	int getDay() { return day; }
+	void print() {
+		cout << year << ":" << month << ":" << day;
+	}
+
+	~Date() {}
+};
+
+class Person {
+private:
+	string gender;
+	string ID;
+	string IDCard;
+	Date birthday;
+public:
+	Person() { }
+	Person(string g, string id, Date d, string idc);
+	string getGender();
+	string getID();
+	Date getBirthday();
+	string getIDCard();
+	void print();
+	~Person() {}
+};
+
+Person::Person(string g, string id, Date d, string idc): gender(g), ID(id), birthday(d), IDCard(idc) {}
+
+string Person::getGender(){
+	return gender;
+}
+
+string Person::getID() {
+	return ID;
+}
+
+Date Person::getBirthday(){
+	return birthday;
+}
+
+string Person::getIDCard(){
+	return IDCard;
+}
+
+void Person::print(){
+	cout << " Gender: " << gender
+		<< " ID: " << ID
+		<< " Birthday: ";
+	birthday.print();
+	cout << " IDCard: " << IDCard;
+}
+
+class Stuff {
+private:
+	Person person[10];
+public:
+	Stuff();
+	Person getPerson(int i);
+	void print();
+};
+
+Stuff::Stuff(){
+	string c = "A";
+	string ID = "0";
+	int y = 1999;
+	int m = 1;
+	int d = 0;
+	string IDCard = "11111111111";
+	for (int i = 0; i < 10; ++i) {
+		Date date(y, m, d);
+		Person p(c, ID, date, IDCard);
+		person[i] = p;
+		++d;
+		++c[0];
+		++ID[0];
+		++IDCard[i];
+	}
+}
+
+Person Stuff::getPerson(int i){
+	return person[i];
+}
+
+void Stuff::print() {
+	for(int i = 0; i < 10; ++i){
+		person[i].print();
+		cout << endl;
+	}
+}
+
+int main() {
+	Stuff stuff;
+	stuff.print();
+	return 0;
+}

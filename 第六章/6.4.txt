@@ -1,0 +1,1 @@
+int count = sizeof(oneArray)/sizeof(oneArray[0]);
